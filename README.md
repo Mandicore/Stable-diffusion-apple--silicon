@@ -1,1 +1,0 @@
-# Stable-diffusion-apple--silicon
