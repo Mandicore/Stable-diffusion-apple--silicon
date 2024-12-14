@@ -80,20 +80,20 @@ class StableDiffusionModel {
             return nil
         }
     }
-    
     private func generateLatents(from encodedText: MLMultiArray, width: Int, height: Int) -> [Float] {
-        // Placeholder implementation for generating latents from encodedText
-        // Replace this with actual latent generation logic using your model
         var latents = [Float](repeating: 0.0, count: width * height * 3)
-        
-        // Example: Populate latents with random values for testing
+
+        // Maximized affine transformation
+        let alpha: Float = 1.0
+        let beta: Float = 1.0
+
         for i in 0..<latents.count {
-            latents[i] = Float.random(in: -1.0...1.0)
+            let encodedValue = encodedText[i % encodedText.count].floatValue
+            latents[i] = alpha * encodedValue + beta
         }
-        
+
         return latents
     }
-    
     private func decodeLatentsToPixels(latents: [Float], width: Int, height: Int) -> [UInt8] {
         let pixelCount = width * height * 3
         var pixels = [UInt8](repeating: 0, count: pixelCount)

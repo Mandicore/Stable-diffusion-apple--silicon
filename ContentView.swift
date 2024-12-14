@@ -26,7 +26,8 @@ struct ContentView: View {
                         self.generatedImage = image
                         self.errorMessage = nil
                     } else {
-                        self.errorMessage = "Échec de la génération de l'image."
+                        self.errorMessage = "ERROR : échec lors de la génération de l'image."
+                        print("ERROR : échec lors de la génération de l'image.")
                     }
                 }
             }
