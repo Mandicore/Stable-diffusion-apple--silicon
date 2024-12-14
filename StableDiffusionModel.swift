@@ -137,4 +137,8 @@ class StableDiffusionModel {
         
         return imageData
     }
+    func generateImage(_ tokenizedPrompt: [Int], completion: @escaping (NSImage?) -> Void) {
+            let prompt = tokenizedPrompt.map { String($0) }.joined(separator: " ")
+            generateImage(prompt: prompt, completion: completion)
+        }
 }
